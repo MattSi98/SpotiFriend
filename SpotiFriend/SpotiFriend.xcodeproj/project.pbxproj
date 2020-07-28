@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B09FE09EBE94062C0EAD26C /* Pods_SpotiFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D07E669DF23C2DF8453EC0 /* Pods_SpotiFriend.framework */; };
+		C9ADA25724CE0619005850DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA25624CE0619005850DE /* AppDelegate.swift */; };
+		C9ADA25924CE0619005850DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA25824CE0619005850DE /* SceneDelegate.swift */; };
+		C9ADA25E24CE0619005850DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9ADA25C24CE0619005850DE /* Main.storyboard */; };
+		C9ADA26024CE0619005850DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ADA25F24CE0619005850DE /* Assets.xcassets */; };
+		C9ADA26324CE0619005850DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9ADA26124CE0619005850DE /* LaunchScreen.storyboard */; };
+		C9ADA26C24CE10DC005850DE /* signUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA26B24CE10DC005850DE /* signUpVC.swift */; };
+		C9ADA26E24CE175D005850DE /* mapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA26D24CE175D005850DE /* mapVC.swift */; };
+		C9ADA27024CE1BB0005850DE /* settingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA26F24CE1BB0005850DE /* settingsVC.swift */; };
+		C9ADA27224CE1BBD005850DE /* profileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27124CE1BBD005850DE /* profileVC.swift */; };
+		C9ADA27424CE1CE8005850DE /* logInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27324CE1CE8005850DE /* logInVC.swift */; };
+		C9ADA27624CE22BD005850DE /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27524CE22BD005850DE /* tabBarController.swift */; };
+		C9ADA27824D0BFFB005850DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04BADD5BC267AA95EB8F87EF /* Pods-SpotiFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiFriend.debug.xcconfig"; path = "Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend.debug.xcconfig"; sourceTree = "<group>"; };
+		93D07E669DF23C2DF8453EC0 /* Pods_SpotiFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotiFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9ADA25324CE0619005850DE /* SpotiFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotiFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9ADA25624CE0619005850DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C9ADA25824CE0619005850DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C9ADA25D24CE0619005850DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C9ADA25F24CE0619005850DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9ADA26224CE0619005850DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C9ADA26424CE0619005850DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9ADA26B24CE10DC005850DE /* signUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpVC.swift; sourceTree = "<group>"; };
+		C9ADA26D24CE175D005850DE /* mapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapVC.swift; sourceTree = "<group>"; };
+		C9ADA26F24CE1BB0005850DE /* settingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsVC.swift; sourceTree = "<group>"; };
+		C9ADA27124CE1BBD005850DE /* profileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileVC.swift; sourceTree = "<group>"; };
+		C9ADA27324CE1CE8005850DE /* logInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logInVC.swift; sourceTree = "<group>"; };
+		C9ADA27524CE22BD005850DE /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
+		C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Users/matt/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ED56FF155CA8A113B3329E6B /* Pods-SpotiFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiFriend.release.xcconfig"; path = "Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9ADA25024CE0619005850DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B09FE09EBE94062C0EAD26C /* Pods_SpotiFriend.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		751672318ECD6E2EEBC3AC3F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				04BADD5BC267AA95EB8F87EF /* Pods-SpotiFriend.debug.xcconfig */,
+				ED56FF155CA8A113B3329E6B /* Pods-SpotiFriend.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B66B0CB34D9B563101DB9A50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93D07E669DF23C2DF8453EC0 /* Pods_SpotiFriend.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9ADA24A24CE0619005850DE = {
+			isa = PBXGroup;
+			children = (
+				C9ADA25524CE0619005850DE /* SpotiFriend */,
+				C9ADA25424CE0619005850DE /* Products */,
+				751672318ECD6E2EEBC3AC3F /* Pods */,
+				B66B0CB34D9B563101DB9A50 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C9ADA25424CE0619005850DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9ADA25324CE0619005850DE /* SpotiFriend.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9ADA25524CE0619005850DE /* SpotiFriend */ = {
+			isa = PBXGroup;
+			children = (
+				C9ADA26A24CE10B4005850DE /* view Controllers */,
+				C9ADA25624CE0619005850DE /* AppDelegate.swift */,
+				C9ADA25824CE0619005850DE /* SceneDelegate.swift */,
+				C9ADA25C24CE0619005850DE /* Main.storyboard */,
+				C9ADA27524CE22BD005850DE /* tabBarController.swift */,
+				C9ADA25F24CE0619005850DE /* Assets.xcassets */,
+				C9ADA26124CE0619005850DE /* LaunchScreen.storyboard */,
+				C9ADA26424CE0619005850DE /* Info.plist */,
+				C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */,
+			);
+			path = SpotiFriend;
+			sourceTree = "<group>";
+		};
+		C9ADA26A24CE10B4005850DE /* view Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9ADA27324CE1CE8005850DE /* logInVC.swift */,
+				C9ADA26B24CE10DC005850DE /* signUpVC.swift */,
+				C9ADA26D24CE175D005850DE /* mapVC.swift */,
+				C9ADA26F24CE1BB0005850DE /* settingsVC.swift */,
+				C9ADA27124CE1BBD005850DE /* profileVC.swift */,
+			);
+			path = "view Controllers";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C9ADA25224CE0619005850DE /* SpotiFriend */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9ADA26724CE0619005850DE /* Build configuration list for PBXNativeTarget "SpotiFriend" */;
+			buildPhases = (
+				DFD1B596E08D10E7C4C74697 /* [CP] Check Pods Manifest.lock */,
+				C9ADA24F24CE0619005850DE /* Sources */,
+				C9ADA25024CE0619005850DE /* Frameworks */,
+				C9ADA25124CE0619005850DE /* Resources */,
+				602E3044484FF3589CB40457 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpotiFriend;
+			productName = SpotiFriend;
+			productReference = C9ADA25324CE0619005850DE /* SpotiFriend.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C9ADA24B24CE0619005850DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Matthew Simon";
+				TargetAttributes = {
+					C9ADA25224CE0619005850DE = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = C9ADA24E24CE0619005850DE /* Build configuration list for PBXProject "SpotiFriend" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C9ADA24A24CE0619005850DE;
+			productRefGroup = C9ADA25424CE0619005850DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9ADA25224CE0619005850DE /* SpotiFriend */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9ADA25124CE0619005850DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9ADA26324CE0619005850DE /* LaunchScreen.storyboard in Resources */,
+				C9ADA27824D0BFFB005850DE /* GoogleService-Info.plist in Resources */,
+				C9ADA26024CE0619005850DE /* Assets.xcassets in Resources */,
+				C9ADA25E24CE0619005850DE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		602E3044484FF3589CB40457 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFD1B596E08D10E7C4C74697 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpotiFriend-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9ADA24F24CE0619005850DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9ADA26E24CE175D005850DE /* mapVC.swift in Sources */,
+				C9ADA27624CE22BD005850DE /* tabBarController.swift in Sources */,
+				C9ADA26C24CE10DC005850DE /* signUpVC.swift in Sources */,
+				C9ADA27424CE1CE8005850DE /* logInVC.swift in Sources */,
+				C9ADA27224CE1BBD005850DE /* profileVC.swift in Sources */,
+				C9ADA27024CE1BB0005850DE /* settingsVC.swift in Sources */,
+				C9ADA25724CE0619005850DE /* AppDelegate.swift in Sources */,
+				C9ADA25924CE0619005850DE /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C9ADA25C24CE0619005850DE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9ADA25D24CE0619005850DE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C9ADA26124CE0619005850DE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9ADA26224CE0619005850DE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C9ADA26524CE0619005850DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C9ADA26624CE0619005850DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9ADA26824CE0619005850DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04BADD5BC267AA95EB8F87EF /* Pods-SpotiFriend.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TF74F97SUB;
+				INFOPLIST_FILE = SpotiFriend/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewsimon.SpotiFriend;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C9ADA26924CE0619005850DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED56FF155CA8A113B3329E6B /* Pods-SpotiFriend.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TF74F97SUB;
+				INFOPLIST_FILE = SpotiFriend/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewsimon.SpotiFriend;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9ADA24E24CE0619005850DE /* Build configuration list for PBXProject "SpotiFriend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9ADA26524CE0619005850DE /* Debug */,
+				C9ADA26624CE0619005850DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9ADA26724CE0619005850DE /* Build configuration list for PBXNativeTarget "SpotiFriend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9ADA26824CE0619005850DE /* Debug */,
+				C9ADA26924CE0619005850DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9ADA24B24CE0619005850DE /* Project object */;
+}

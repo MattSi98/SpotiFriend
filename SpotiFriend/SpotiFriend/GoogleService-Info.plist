@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>928548640081-2qj4149dnscgjqrjheifdl26htb3r69b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.928548640081-2qj4149dnscgjqrjheifdl26htb3r69b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDvKRKpWOmLKNWwBR2vzj3O8DjDUH2VjDQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>928548640081</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.matthewsimon.SpotiFriend</string>
+	<key>PROJECT_ID</key>
+	<string>spotifriend-3089f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spotifriend-3089f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:928548640081:ios:0e2d5ee59e94747452af70</string>
+	<key>DATABASE_URL</key>
+	<string>https://spotifriend-3089f.firebaseio.com</string>
+</dict>
+</plist>
