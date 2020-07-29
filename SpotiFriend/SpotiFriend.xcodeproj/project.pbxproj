@@ -20,6 +20,7 @@
 		C9ADA27424CE1CE8005850DE /* logInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27324CE1CE8005850DE /* logInVC.swift */; };
 		C9ADA27624CE22BD005850DE /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27524CE22BD005850DE /* tabBarController.swift */; };
 		C9ADA27824D0BFFB005850DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */; };
+		C9ADA27A24D1E2D7005850DE /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27924D1E2D7005850DE /* UserSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		C9ADA27324CE1CE8005850DE /* logInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logInVC.swift; sourceTree = "<group>"; };
 		C9ADA27524CE22BD005850DE /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Users/matt/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C9ADA27924D1E2D7005850DE /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		ED56FF155CA8A113B3329E6B /* Pods-SpotiFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiFriend.release.xcconfig"; path = "Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,11 +94,11 @@
 		C9ADA25524CE0619005850DE /* SpotiFriend */ = {
 			isa = PBXGroup;
 			children = (
+				C9ADA27B24D1E3E6005850DE /* Models */,
 				C9ADA26A24CE10B4005850DE /* view Controllers */,
 				C9ADA25624CE0619005850DE /* AppDelegate.swift */,
 				C9ADA25824CE0619005850DE /* SceneDelegate.swift */,
 				C9ADA25C24CE0619005850DE /* Main.storyboard */,
-				C9ADA27524CE22BD005850DE /* tabBarController.swift */,
 				C9ADA25F24CE0619005850DE /* Assets.xcassets */,
 				C9ADA26124CE0619005850DE /* LaunchScreen.storyboard */,
 				C9ADA26424CE0619005850DE /* Info.plist */,
@@ -115,6 +117,15 @@
 				C9ADA27124CE1BBD005850DE /* profileVC.swift */,
 			);
 			path = "view Controllers";
+			sourceTree = "<group>";
+		};
+		C9ADA27B24D1E3E6005850DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9ADA27924D1E2D7005850DE /* UserSingleton.swift */,
+				C9ADA27524CE22BD005850DE /* tabBarController.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,7 @@
 			files = (
 				C9ADA26E24CE175D005850DE /* mapVC.swift in Sources */,
 				C9ADA27624CE22BD005850DE /* tabBarController.swift in Sources */,
+				C9ADA27A24D1E2D7005850DE /* UserSingleton.swift in Sources */,
 				C9ADA26C24CE10DC005850DE /* signUpVC.swift in Sources */,
 				C9ADA27424CE1CE8005850DE /* logInVC.swift in Sources */,
 				C9ADA27224CE1BBD005850DE /* profileVC.swift in Sources */,

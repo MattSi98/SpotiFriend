@@ -133,6 +133,9 @@
                         <viewLayoutGuide key="safeArea" id="krm-xv-kFZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" id="MR6-6o-hLf"/>
+                    <connections>
+                        <outlet property="mapView" destination="5bO-uz-dQz" id="dZJ-5V-fI1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0w-jO-zvi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -305,7 +308,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicGeneric" translatesAutoresizingMaskIntoConstraints="NO" id="BxZ-N9-TiH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicGeneric" translatesAutoresizingMaskIntoConstraints="NO" id="BxZ-N9-TiH">
                                 <rect key="frame" x="114" y="89" width="186" height="186"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF7-Fj-2FA">
@@ -374,7 +377,7 @@
                                     <constraint firstAttribute="height" constant="50" id="jDZ-cC-vck"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Edit Profile" backgroundImage="shortGreyButtonFlipped">
+                                <state key="normal" title="Edit Picture" backgroundImage="shortGreyButtonFlipped">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -392,7 +395,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="editProfileClicked:" destination="Xu8-wg-dIp" eventType="touchUpInside" id="kxG-f3-0yW"/>
                                     <action selector="logOutClicked:" destination="Xu8-wg-dIp" eventType="touchUpInside" id="tq8-bh-j8m"/>
                                 </connections>
                             </button>
@@ -579,7 +581,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="SjE-zc-OlQ"/>
-        <segue reference="Jhc-Yn-j9R"/>
+        <segue reference="ahX-7n-Wgx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="darkGreyButton" width="132" height="50"/>
