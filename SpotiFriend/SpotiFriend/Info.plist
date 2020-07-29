@@ -49,6 +49,10 @@
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access photo library to  upload profile picture </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location used when in app to determine users world location</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
