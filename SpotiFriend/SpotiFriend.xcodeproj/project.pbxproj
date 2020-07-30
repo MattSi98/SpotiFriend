@@ -21,6 +21,7 @@
 		C9ADA27624CE22BD005850DE /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27524CE22BD005850DE /* tabBarController.swift */; };
 		C9ADA27824D0BFFB005850DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */; };
 		C9ADA27A24D1E2D7005850DE /* UserSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27924D1E2D7005850DE /* UserSingleton.swift */; };
+		C9ADA27D24D33F60005850DE /* editAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA27C24D33F60005850DE /* editAccountVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		C9ADA27524CE22BD005850DE /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Users/matt/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9ADA27924D1E2D7005850DE /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
+		C9ADA27C24D33F60005850DE /* editAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editAccountVC.swift; sourceTree = "<group>"; };
 		ED56FF155CA8A113B3329E6B /* Pods-SpotiFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiFriend.release.xcconfig"; path = "Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				C9ADA26D24CE175D005850DE /* mapVC.swift */,
 				C9ADA26F24CE1BB0005850DE /* settingsVC.swift */,
 				C9ADA27124CE1BBD005850DE /* profileVC.swift */,
+				C9ADA27C24D33F60005850DE /* editAccountVC.swift */,
 			);
 			path = "view Controllers";
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				C9ADA27624CE22BD005850DE /* tabBarController.swift in Sources */,
 				C9ADA27A24D1E2D7005850DE /* UserSingleton.swift in Sources */,
 				C9ADA26C24CE10DC005850DE /* signUpVC.swift in Sources */,
+				C9ADA27D24D33F60005850DE /* editAccountVC.swift in Sources */,
 				C9ADA27424CE1CE8005850DE /* logInVC.swift in Sources */,
 				C9ADA27224CE1BBD005850DE /* profileVC.swift in Sources */,
 				C9ADA27024CE1BB0005850DE /* settingsVC.swift in Sources */,

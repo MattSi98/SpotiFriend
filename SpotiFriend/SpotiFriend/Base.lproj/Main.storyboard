@@ -290,11 +290,81 @@
                     <connections>
                         <outlet property="mapRadiusTextField" destination="HS3-6I-WbN" id="v9b-zJ-Bbg"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="toLogInVCfromSettingsVC" modalPresentationStyle="fullScreen" id="Jhc-Yn-j9R"/>
+                        <segue destination="PJJ-Yj-ZDq" kind="show" identifier="toEditAccountVCfromSettingsVC" id="FqN-5b-L5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9th-vX-PNV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1728.985507246377" y="825"/>
+        </scene>
+        <!--Edit AccountVC-->
+        <scene sceneID="83i-9D-t6D">
+            <objects>
+                <viewController id="PJJ-Yj-ZDq" customClass="editAccountVC" customModule="SpotiFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0C3-EZ-iKh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notesBG" translatesAutoresizingMaskIntoConstraints="NO" id="dgp-s3-x0P">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="update value " textAlignment="center" minimumFontSize="17" background="longGreyButton" translatesAutoresizingMaskIntoConstraints="NO" id="Pgd-3d-4i5">
+                                <rect key="frame" x="47" y="286" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bVa-WB-lOe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your desired ______ in the box below and press update." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Liv-Zm-Sf3">
+                                <rect key="frame" x="47" y="114" width="315" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="OKY-eB-VE1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVu-bf-YYB">
+                                <rect key="frame" x="94" y="463" width="221" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="VnY-f3-gOQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <state key="normal" title="Update" backgroundImage="darkGreyButton"/>
+                                <connections>
+                                    <action selector="updateClicked:" destination="PJJ-Yj-ZDq" eventType="touchUpInside" id="AIa-mI-n8L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Liv-Zm-Sf3" firstAttribute="centerX" secondItem="MVu-bf-YYB" secondAttribute="centerX" id="0pc-pk-GwZ"/>
+                            <constraint firstItem="dgp-s3-x0P" firstAttribute="top" secondItem="0oR-si-ZTs" secondAttribute="top" id="1sw-fr-zaJ"/>
+                            <constraint firstItem="Liv-Zm-Sf3" firstAttribute="leading" secondItem="0oR-si-ZTs" secondAttribute="leading" constant="47" id="BLr-fl-bnt"/>
+                            <constraint firstItem="Liv-Zm-Sf3" firstAttribute="top" secondItem="0oR-si-ZTs" secondAttribute="top" constant="114" id="Bv7-AI-2Qo"/>
+                            <constraint firstItem="Liv-Zm-Sf3" firstAttribute="leading" secondItem="Pgd-3d-4i5" secondAttribute="leading" id="GN6-s9-oAg"/>
+                            <constraint firstItem="dgp-s3-x0P" firstAttribute="centerX" secondItem="Pgd-3d-4i5" secondAttribute="centerX" id="J1K-oJ-6Vd"/>
+                            <constraint firstItem="dgp-s3-x0P" firstAttribute="leading" secondItem="0oR-si-ZTs" secondAttribute="leading" id="Sqo-rQ-UAl"/>
+                            <constraint firstItem="MVu-bf-YYB" firstAttribute="leading" secondItem="0oR-si-ZTs" secondAttribute="leading" constant="94" id="d6s-lK-Y3N"/>
+                            <constraint firstItem="0oR-si-ZTs" firstAttribute="bottom" secondItem="MVu-bf-YYB" secondAttribute="bottom" constant="274" id="dgH-8H-Tup"/>
+                            <constraint firstItem="Pgd-3d-4i5" firstAttribute="top" secondItem="Liv-Zm-Sf3" secondAttribute="bottom" constant="12" id="ks4-W7-I6p"/>
+                            <constraint firstItem="0oR-si-ZTs" firstAttribute="trailing" secondItem="Liv-Zm-Sf3" secondAttribute="trailing" constant="52" id="kzt-2j-4tT"/>
+                            <constraint firstItem="dgp-s3-x0P" firstAttribute="centerX" secondItem="0C3-EZ-iKh" secondAttribute="centerX" id="qtn-9Y-vNy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0oR-si-ZTs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tyY-H4-vpI"/>
+                    <connections>
+                        <outlet property="desiredTextField" destination="Pgd-3d-4i5" id="76S-dA-oMy"/>
+                        <outlet property="instructionsLabel" destination="Liv-Zm-Sf3" id="jZm-g3-x3T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ji-pV-U0y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2598.5507246376815" y="827.67857142857144"/>
         </scene>
         <!--Profile-->
         <scene sceneID="LQB-q0-g1O">
@@ -581,7 +651,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="SjE-zc-OlQ"/>
-        <segue reference="ahX-7n-Wgx"/>
+        <segue reference="Jhc-Yn-j9R"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="darkGreyButton" width="132" height="50"/>

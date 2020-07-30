@@ -30,19 +30,27 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         profilePictureImageView.layer.borderWidth = 5
         profilePictureImageView.layer.borderColor = UIColor.systemGreen.cgColor
         
-        updateUserInfoUI()
+        updateUserInfoUIPicture()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        updateUserInfoUIText()
     }
 
-    
-    func updateUserInfoUI(){
-        //make username the current user
-        usernameLabel.text = UserSingleton.sharedUserInfo.username
+    func updateUserInfoUIPicture(){
+        //do this in view did load - if done in view will appear it glitches and sometimes
+        //will present a blank profile pic
         //make porfile pic the users chosen picture
         if UserSingleton.sharedUserInfo.profilePicURL != ""{
             profilePictureImageView.sd_setImage(with: URL(string: UserSingleton.sharedUserInfo.profilePicURL))
         }else{
             profilePictureImageView.image = UIImage(named: "profilePicGeneric")
         }
+    }
+    
+    func updateUserInfoUIText(){
+        //make username the current user
+        usernameLabel.text = UserSingleton.sharedUserInfo.username
+        
         
         //set number of likes to users total like
         //TODO - handle actual liking functionality
