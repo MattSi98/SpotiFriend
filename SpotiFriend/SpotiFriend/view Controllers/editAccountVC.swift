@@ -17,7 +17,7 @@ class editAccountVC: UIViewController {
     
     
     var selectedEditID = ""
-    let firestoreDatabase = Firestore.firestore()
+    private let firestoreDatabase = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,6 +170,7 @@ extension String {
       let testEmail = NSPredicate(format:"SELF MATCHES %@", regularExpressionForEmail)
       return testEmail.evaluate(with: self)
    }
+    
    var isValidPhone: Bool {
       let regularExpressionForPhone = "^\\d{3}-\\d{3}-\\d{4}$"
       let testPhone = NSPredicate(format:"SELF MATCHES %@", regularExpressionForPhone)

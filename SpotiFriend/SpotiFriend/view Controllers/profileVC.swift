@@ -13,9 +13,10 @@ import SDWebImage
 class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var profilePictureImageView: UIImageView!
-    @IBOutlet weak var totalLikesLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var playlistsFoundLabel: UILabel!
     
+    @IBOutlet weak var playlistsCreatedLabel: UILabel!
     
     //status bar color
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -36,7 +37,7 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         updateUserInfoUIText()
     }
 
-    func updateUserInfoUIPicture(){
+    private func updateUserInfoUIPicture(){
         //do this in view did load - if done in view will appear it glitches and sometimes
         //will present a blank profile pic
         //make porfile pic the users chosen picture
@@ -47,14 +48,17 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         }
     }
     
-    func updateUserInfoUIText(){
+    private func updateUserInfoUIText(){
         //make username the current user
         usernameLabel.text = UserSingleton.sharedUserInfo.username
+        
+        playlistsCreatedLabel.text = String(UserSingleton.sharedUserInfo.totalPlaylistsCreated)
+        playlistsFoundLabel.text = String(UserSingleton.sharedUserInfo.totalPlaylistsFound)
         
         
         //set number of likes to users total like
         //TODO - handle actual liking functionality
-        totalLikesLabel.text = String(UserSingleton.sharedUserInfo.numTotalLikes)
+        //totalLikesLabel.text = String(UserSingleton.sharedUserInfo.numTotalLikes)
     }
     
     
@@ -86,7 +90,7 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         self.dismiss(animated: true, completion: nil)
     }
     
-    func storeProfilePic(){
+    private func storeProfilePic(){
         //Storage
         let storage = Storage.storage()
         let storageRef = storage.reference()
@@ -144,17 +148,7 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     
     
     
-    
-    @IBAction func followersClicked(_ sender: Any) {
-        //TODO
-        makeAlert(title: "TODO", message: "Coming soon!")
-    }
-    
-    @IBAction func followingClicked(_ sender: Any) {
-        //TODO
-        makeAlert(title: "TODO", message: "Coming soon!")
-
-    }
+   
     
     
     

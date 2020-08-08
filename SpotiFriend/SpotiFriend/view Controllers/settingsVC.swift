@@ -14,7 +14,7 @@ class settingsVC: UIViewController {
     
     @IBOutlet weak var mapRadiusTextField: UITextField!
     
-    let firestoreDatabase = Firestore.firestore()
+    private let firestoreDatabase = Firestore.firestore()
     private var editIdentifier = ""
     
     //status bar color
@@ -26,7 +26,43 @@ class settingsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mapRadiusTextField.text = "\(UserSingleton.sharedUserInfo.mapRadius/1609)"
+    }
+    
+    
+    @IBAction func updateMapRadiusClicked(_ sender: Any) {
+        firestoreDatabase.collection("userInfo").whereField("email", isEqualTo: Auth.auth().currentUser!.email!).getDocuments { (snapshot, error) in
+            if error != nil {
+                self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error accessing database")
+            }else{
+                if snapshot?.isEmpty == false && snapshot != nil {
+                    if (snapshot?.documents.count)! > 1 {
+                        print("error")
+                    }else{
+                        for doc in snapshot!.documents{
+                            let docID = doc.documentID
+                            
+                            let updatedDict = ["mapRadius" : Double(self.mapRadiusTextField.text!) ?? 25] as [String : Any]
+                            self.firestoreDatabase.collection("userInfo").document(docID).setData(updatedDict, merge: true) { (error) in
+                                if error != nil {
+                                    self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error storing into database")
+                                }else{
+                                    UserSingleton.sharedUserInfo.mapRadius = (Double(self.mapRadiusTextField.text!) ?? 25) * 1609
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditAccountVCfromSettingsVC"{

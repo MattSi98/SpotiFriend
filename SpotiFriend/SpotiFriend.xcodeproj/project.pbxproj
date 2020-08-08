@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B09FE09EBE94062C0EAD26C /* Pods_SpotiFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D07E669DF23C2DF8453EC0 /* Pods_SpotiFriend.framework */; };
+		C94FA75F24D7492B0091E8F8 /* addPlaylistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94FA75E24D7492B0091E8F8 /* addPlaylistVC.swift */; };
 		C9ADA25724CE0619005850DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA25624CE0619005850DE /* AppDelegate.swift */; };
 		C9ADA25924CE0619005850DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ADA25824CE0619005850DE /* SceneDelegate.swift */; };
 		C9ADA25E24CE0619005850DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9ADA25C24CE0619005850DE /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		04BADD5BC267AA95EB8F87EF /* Pods-SpotiFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiFriend.debug.xcconfig"; path = "Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend.debug.xcconfig"; sourceTree = "<group>"; };
 		93D07E669DF23C2DF8453EC0 /* Pods_SpotiFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotiFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C94FA75E24D7492B0091E8F8 /* addPlaylistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addPlaylistVC.swift; sourceTree = "<group>"; };
 		C9ADA25324CE0619005850DE /* SpotiFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotiFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ADA25624CE0619005850DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9ADA25824CE0619005850DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				C9ADA26F24CE1BB0005850DE /* settingsVC.swift */,
 				C9ADA27124CE1BBD005850DE /* profileVC.swift */,
 				C9ADA27C24D33F60005850DE /* editAccountVC.swift */,
+				C94FA75E24D7492B0091E8F8 /* addPlaylistVC.swift */,
 			);
 			path = "view Controllers";
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				C9ADA27424CE1CE8005850DE /* logInVC.swift in Sources */,
 				C9ADA27224CE1BBD005850DE /* profileVC.swift in Sources */,
 				C9ADA27024CE1BB0005850DE /* settingsVC.swift in Sources */,
+				C94FA75F24D7492B0091E8F8 /* addPlaylistVC.swift in Sources */,
 				C9ADA25724CE0619005850DE /* AppDelegate.swift in Sources */,
 				C9ADA25924CE0619005850DE /* SceneDelegate.swift in Sources */,
 			);

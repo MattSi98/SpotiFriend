@@ -14,8 +14,11 @@ class UserSingleton {
     
     var email = ""
     var username = ""
-    var numTotalLikes = 0
     var profilePicURL = ""
+    var mapRadius : Double = 40225.0
+    
+    var totalPlaylistsCreated = 0
+    var totalPlaylistsFound = 0
     
     private init(){
         
