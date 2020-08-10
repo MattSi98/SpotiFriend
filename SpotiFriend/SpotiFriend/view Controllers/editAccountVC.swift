@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class editAccountVC: UIViewController {
+class editAccountVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var desiredTextField: UITextField!
@@ -24,8 +24,16 @@ class editAccountVC: UIViewController {
 
         // Do any additional setup after loading the view.
         instructionsLabel.text = "Please enter your desired \(selectedEditID) in the box below and press update."
+        
+        desiredTextField.attributedPlaceholder =  NSAttributedString(string: "update value",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        desiredTextField.delegate = self
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()   
+        return true
+    }
 
     
     @IBAction func updateClicked(_ sender: Any) {

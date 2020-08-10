@@ -11,7 +11,7 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class addPlaylistVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class addPlaylistVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var addPlaylistMapView: MKMapView!
@@ -49,6 +49,15 @@ class addPlaylistVC: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         let gr = UILongPressGestureRecognizer(target: self, action: #selector(mapLongPressed(gestureRecognizer:)))
         gr.minimumPressDuration = 2
         addPlaylistMapView.addGestureRecognizer(gr)
+        
+        
+        titleTextField.delegate = self
+        linkTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()   
+        return true
     }
     
 
@@ -57,47 +66,44 @@ class addPlaylistVC: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
         //get username
         let author = UserSingleton.sharedUserInfo.username
         //get map location from gest rec
-        if titleTextField.text != "" && linkTextField.text != ""{
-            let addDict = ["title": titleTextField.text!, "author" : author, "latitude" : chosenLat, "longitude" : chosenLong, "spotifyLink": linkTextField.text!, "date" : FieldValue.serverTimestamp(), "hasFound" : [String]()] as [String : Any]
-            //add new playlist to "userPlaylists" db collection
-            firestoreDatabase.collection("userPlaylists").addDocument(data: addDict) { (error) in
-                if error != nil {
-                    //error
-                    self.makeAlert(title: "Error", message: "Could not store playlist in database")
-                }else{
-                    //segue back to map
-                    //self.performSegue(withIdentifier: "fromAddPlaylistVCtoTabBarVC", sender: nil)
-                    //self.dismiss(animated: true, completion: nil)
+        if titleTextField.text != "" && linkTextField.text != "" {
+            if linkTextField.text!.contains("https://open.spotify.com"){
+                //check if valid link
+                let addDict = ["title": titleTextField.text!, "author" : author, "latitude" : chosenLat, "longitude" : chosenLong, "spotifyLink": linkTextField.text!, "date" : FieldValue.serverTimestamp(), "hasFound" : [String]()] as [String : Any]
+                //add new playlist to "userPlaylists" db collection
+                firestoreDatabase.collection("userPlaylists").addDocument(data: addDict) { (error) in
+                    if error != nil {
+                        //error
+                        self.makeAlert(title: "Error", message: "Could not store playlist in database")
+                    }
                 }
-            }
-            
-            
-            //update playlist in user info
-            let updateDict = ["totalPlaylistsCreated" : UserSingleton.sharedUserInfo.totalPlaylistsCreated + 1] as [String : Any]
-            firestoreDatabase.collection("userInfo").whereField("email", isEqualTo: UserSingleton.sharedUserInfo.email).getDocuments { (snapshot, error) in
-                if error != nil {
-                    
-                }else{
-                    if snapshot?.isEmpty == false && snapshot != nil && snapshot?.count == 1{
-                        for doc in snapshot!.documents{
-                            let docId = doc.documentID
-                            
-                            self.firestoreDatabase.collection("userInfo").document(docId).setData(updateDict, merge: true) { (error) in
-                                if error != nil {
-                                    self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error storing data in DB.")
-                                }else{
-                                    //update user singleton
-                                    UserSingleton.sharedUserInfo.totalPlaylistsCreated += 1
-                                    self.performSegue(withIdentifier: "fromAddPlaylistVCtoTabBarVC", sender: nil)
+                
+                //update playlist in user info
+                let updateDict = ["totalPlaylistsCreated" : UserSingleton.sharedUserInfo.totalPlaylistsCreated + 1] as [String : Any]
+                firestoreDatabase.collection("userInfo").whereField("email", isEqualTo: UserSingleton.sharedUserInfo.email).getDocuments { (snapshot, error) in
+                    if error != nil {
+                        
+                    }else{
+                        if snapshot?.isEmpty == false && snapshot != nil && snapshot?.count == 1{
+                            for doc in snapshot!.documents{
+                                let docId = doc.documentID
+                                
+                                self.firestoreDatabase.collection("userInfo").document(docId).setData(updateDict, merge: true) { (error) in
+                                    if error != nil {
+                                        self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error storing data in DB.")
+                                    }else{
+                                        //update user singleton
+                                        UserSingleton.sharedUserInfo.totalPlaylistsCreated += 1
+                                        self.performSegue(withIdentifier: "fromAddPlaylistVCtoTabBarVC", sender: nil)
+                                    }
+                                
                                 }
-                            
                             }
                         }
                     }
                 }
-                
-                
-                
+            }else{
+                makeAlert(title: "Error", message: "Please enter valid Spotify Playlist Link.")
             }
         }
     }

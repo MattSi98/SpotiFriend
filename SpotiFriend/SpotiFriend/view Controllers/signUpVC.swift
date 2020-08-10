@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class signUpVC: UIViewController {
+class signUpVC: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -25,10 +25,25 @@ class signUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         usernameTextField.attributedPlaceholder =  NSAttributedString(string: "username",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         emailTextField.attributedPlaceholder =  NSAttributedString(string: "email address",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         passwordTextField.attributedPlaceholder =  NSAttributedString(string: "password",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        emailTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameTextField{
+            emailTextField.becomeFirstResponder()
+        }else if textField == emailTextField{
+            passwordTextField.becomeFirstResponder()
+        }else{
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
 

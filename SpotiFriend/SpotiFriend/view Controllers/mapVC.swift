@@ -156,14 +156,21 @@ class mapVC: UIViewController, MKMapViewDelegate {
                                         annotation.title = title
                                         annotation.subtitle = author
                                         annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                                        //add distance check here - dont add to map if not within map raius
+                                        
+                                        
+                                        //TODO - do we need a distance check for masterPlaylists
+                                        //distance check here - dont add to map if not within map raius
+//                                        if let delta = self.mapView.userLocation.location?.distance(from: CLLocation(latitude: lat, longitude: long)){
+//                                            if delta.magnitude <= UserSingleton.sharedUserInfo.mapRadius {
                                         self.mapView.addAnnotation(annotation)
+//                                            }
+//                                        }else{
+//                                            self.makeAlert(title: "Error", message: "Error in displaying map annotations within radius")
+//                                        }
                                     }
                                 }
                             }
                         }
-                        
-                        
                     }
                 }
             }
@@ -199,8 +206,17 @@ class mapVC: UIViewController, MKMapViewDelegate {
                                                     annotation.title = title
                                                     annotation.subtitle = author
                                                     annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                                                    //add distance check here - dont add to map if not within map raius
-                                                    self.mapView.addAnnotation(annotation)
+                                                    
+                                                    
+                                                    
+                                                    //distance check here - dont add to map if not within map raius
+                                                    if let delta = self.mapView.userLocation.location?.distance(from: CLLocation(latitude: lat, longitude: long)){
+                                                        if delta.magnitude <= UserSingleton.sharedUserInfo.mapRadius {
+                                                            self.mapView.addAnnotation(annotation)
+                                                        }
+                                                    }else{
+                                                        self.makeAlert(title: "Error", message: "Error in displaying map annotations within radius")
+                                                    }
                                                 }
                                             }
                                         }

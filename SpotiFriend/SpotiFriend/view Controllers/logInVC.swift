@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class logInVC: UIViewController {
+class logInVC: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,11 +24,21 @@ class logInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         emailTextField.attributedPlaceholder =  NSAttributedString(string: "email",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         passwordTextField.attributedPlaceholder =  NSAttributedString(string: "password",attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField{
+            passwordTextField.becomeFirstResponder()
+        }else{
+            textField.resignFirstResponder()
+        }
+        return true
+    }
     
     
     @IBAction func logInClicked(_ sender: Any) {
@@ -43,8 +53,6 @@ class logInVC: UIViewController {
         }else{
             makeAlert(title: "Error", message: "Please enter valid credentials")
         }
-        
-        
     }
     
 
