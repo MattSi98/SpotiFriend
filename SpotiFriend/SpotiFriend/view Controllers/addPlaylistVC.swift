@@ -63,13 +63,14 @@ class addPlaylistVC: UIViewController, MKMapViewDelegate, CLLocationManagerDeleg
 
     
     @IBAction func addPlaylistClicked(_ sender: Any) {
-        //get username
+        //get username/email
         let author = UserSingleton.sharedUserInfo.username
+        let userEmail = UserSingleton.sharedUserInfo.email
         //get map location from gest rec
         if titleTextField.text != "" && linkTextField.text != "" {
             if linkTextField.text!.contains("https://open.spotify.com"){
                 //check if valid link
-                let addDict = ["title": titleTextField.text!, "author" : author, "latitude" : chosenLat, "longitude" : chosenLong, "spotifyLink": linkTextField.text!, "date" : FieldValue.serverTimestamp(), "hasFound" : [String]()] as [String : Any]
+                let addDict = ["title": titleTextField.text!, "author" : author, "email": userEmail, "latitude" : chosenLat, "longitude" : chosenLong, "spotifyLink": linkTextField.text!, "date" : FieldValue.serverTimestamp(), "hasFound" : [String]()] as [String : Any]
                 //add new playlist to "userPlaylists" db collection
                 firestoreDatabase.collection("userPlaylists").addDocument(data: addDict) { (error) in
                     if error != nil {

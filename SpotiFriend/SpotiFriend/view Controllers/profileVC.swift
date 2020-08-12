@@ -80,11 +80,12 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
         self.present(picker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        profilePictureImageView.image = info[.originalImage] as? UIImage
+        profilePictureImageView.image = info[.editedImage] as? UIImage
         
         storeProfilePic()
         self.dismiss(animated: true, completion: nil)
@@ -107,7 +108,17 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
                     imageRef.downloadURL { (URL, error) in
                         if error == nil {
                             let imgURL = URL?.absoluteString
-                            
+                                                        
+                            //delete old profile picture from storage
+                            let oldURL = UserSingleton.sharedUserInfo.profilePicURL
+                            let oldUUID = oldURL.components(separatedBy: "media%2F")[1].components(separatedBy: "?alt")[0]
+                            mediaFolder.child(oldUUID).delete { (error) in
+                                
+                                //TODO what do error handle here - potentially do nothing
+//                                if error != nil {
+//                                    self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Failed to delete data from storage")
+//                                }
+                            }
                             
                             //Firestore
                             //must store profile picture in firebase storage

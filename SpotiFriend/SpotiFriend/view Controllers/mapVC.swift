@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Firebase
 import CoreLocation
+import SDWebImage
 
 class mapVC: UIViewController, MKMapViewDelegate {
     
@@ -38,18 +39,19 @@ class mapVC: UIViewController, MKMapViewDelegate {
         
         //add static annotation
         addStaticAnnotations()
+        
+        //add User annotation
+        addUserAnnotations()
+        
         //set up location services
         configureLocationServices()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {    
         //update user singleton for use throughout app
         getUserInfo()
-        
-        //add User annotation
-        addUserAnnotations()
     }
-    
+
     
     
     @IBAction func addPlaylistCLicked(_ sender: Any) {
@@ -157,16 +159,7 @@ class mapVC: UIViewController, MKMapViewDelegate {
                                         annotation.subtitle = author
                                         annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                                         
-                                        
-                                        //TODO - do we need a distance check for masterPlaylists
-                                        //distance check here - dont add to map if not within map raius
-//                                        if let delta = self.mapView.userLocation.location?.distance(from: CLLocation(latitude: lat, longitude: long)){
-//                                            if delta.magnitude <= UserSingleton.sharedUserInfo.mapRadius {
                                         self.mapView.addAnnotation(annotation)
-//                                            }
-//                                        }else{
-//                                            self.makeAlert(title: "Error", message: "Error in displaying map annotations within radius")
-//                                        }
                                     }
                                 }
                             }
@@ -207,8 +200,6 @@ class mapVC: UIViewController, MKMapViewDelegate {
                                                     annotation.subtitle = author
                                                     annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                                                     
-                                                    
-                                                    
                                                     //distance check here - dont add to map if not within map raius
                                                     if let delta = self.mapView.userLocation.location?.distance(from: CLLocation(latitude: lat, longitude: long)){
                                                         if delta.magnitude <= UserSingleton.sharedUserInfo.mapRadius {
@@ -243,14 +234,57 @@ class mapVC: UIViewController, MKMapViewDelegate {
         
         let reuseId = "myAnnotation"
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+    
+        print(mapView.annotations.count)
         
         if pinView == nil{
+            
             pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             pinView?.canShowCallout = true
             pinView?.tintColor = UIColor.green
             
-            pinView?.image = UIImage(named: "playlistIcon")
+            //custom annotation picture
+            let lat = (pinView?.annotation?.coordinate.latitude)!
+            let long = (pinView?.annotation?.coordinate.longitude)!
+            var url = ""
+            firestoreDatabase.collection("userPlaylists").whereField("latitude", isEqualTo: lat).whereField("longitude", isEqualTo: long).getDocuments { (snapshot, error) in
+                if error != nil {
+                    self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error accessign DB.")
+                }else{
+                    if snapshot?.isEmpty == false && snapshot != nil {
+                        for doc in snapshot!.documents {
+                            if let email = doc.get("email") as? String {
+                                self.firestoreDatabase.collection("userInfo").whereField("email", isEqualTo: email).getDocuments { (snapshot, error) in
+                                    if error != nil {
+                                        self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error accessing DB")
+                                    }else{
+                                        if snapshot?.isEmpty == false && snapshot != nil {
+                                            for doc in snapshot!.documents {
+                                                if let profilePicURL = doc.get("profilePicURL") as? String {
+                                                    url = profilePicURL
+                                                    let newURL = URL(string: url)!
+                                                    let data = try? Data(contentsOf: newURL)
+
+                                                    if let imageData = data {
+                                                        let profilePic = UIImage(data: imageData)
+                                                        let scaledImage = profilePic!.scalePreservingAspectRatio(targetSize: CGSize(width: 35, height: 35))
+                                                        .sd_roundedCornerImage(withRadius: 25, corners: .allCorners, borderWidth: 2, borderColor: .green)
+                                                        pinView?.image = scaledImage
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             
+            if url == "" {
+                pinView?.image = UIImage(named: "playlistIcon")
+            }
             
             let button = UIButton(type: .detailDisclosure)
             pinView?.rightCalloutAccessoryView = button
@@ -272,6 +306,9 @@ class mapVC: UIViewController, MKMapViewDelegate {
         checkUserPlaylists(latitude: lat, longitude: long)
         
     }
+
+    
+    
     
     
     func checkMasterPlaylists(latitude : Double , longitude : Double){
@@ -458,6 +495,38 @@ extension mapVC : CLLocationManagerDelegate{
         }
     }
     
+}
+
+
+
+extension UIImage {
+    func scalePreservingAspectRatio(targetSize: CGSize) -> UIImage {
+        // Determine the scale factor that preserves aspect ratio
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        let scaleFactor = min(widthRatio, heightRatio)
+        
+        // Compute the new image size that preserves aspect ratio
+        let scaledImageSize = CGSize(
+            width: size.width * scaleFactor,
+            height: size.height * scaleFactor
+        )
+
+        // Draw and return the resized UIImage
+        let renderer = UIGraphicsImageRenderer(
+            size: scaledImageSize
+        )
+
+        let scaledImage = renderer.image { _ in
+            self.draw(in: CGRect(
+                origin: .zero,
+                size: scaledImageSize
+            ))
+        }
+        
+        return scaledImage
+    }
 }
 
 
