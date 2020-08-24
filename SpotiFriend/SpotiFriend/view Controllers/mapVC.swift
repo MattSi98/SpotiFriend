@@ -37,22 +37,33 @@ class mapVC: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         
-        //add static annotation
+        //add static annotations
         addStaticAnnotations()
         
-        //add User annotation
+        //add User annotations
         addUserAnnotations()
         
         //set up location services
         configureLocationServices()
     }
     
-    override func viewWillAppear(_ animated: Bool) {    
+    override func viewWillAppear(_ animated: Bool) {
         //update user singleton for use throughout app
         getUserInfo()
     }
 
     
+    @IBAction func reloadMapClicked(_ sender: Any) {
+        updateAnnotations()
+    }
+    
+    func updateAnnotations(){
+        mapView.removeAnnotations(mapView.annotations)
+        
+        addStaticAnnotations()
+
+        addUserAnnotations()
+    }
     
     @IBAction func addPlaylistCLicked(_ sender: Any) {
         performSegue(withIdentifier: "fromMapVCtoAddPlaylistVC", sender: nil)
@@ -123,6 +134,7 @@ class mapVC: UIViewController, MKMapViewDelegate {
     }
        
     private func beginLocationUpdates(locationManager : CLLocationManager){
+        locationManager.distanceFilter = 400.0
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
            
@@ -133,6 +145,9 @@ class mapVC: UIViewController, MKMapViewDelegate {
         //add map rad to usersingleton
         //convert miles to meters
         //use that as span
+        
+        updateAnnotations()
+        
         let region = MKCoordinateRegion.init(center: coord, latitudinalMeters: UserSingleton.sharedUserInfo.mapRadius, longitudinalMeters: UserSingleton.sharedUserInfo.mapRadius)
         mapView.setRegion(region, animated: true)
     }
@@ -158,6 +173,7 @@ class mapVC: UIViewController, MKMapViewDelegate {
                                         annotation.title = title
                                         annotation.subtitle = author
                                         annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                                        
                                         
                                         self.mapView.addAnnotation(annotation)
                                     }
@@ -200,6 +216,7 @@ class mapVC: UIViewController, MKMapViewDelegate {
                                                     annotation.subtitle = author
                                                     annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
                                                     
+                                                    
                                                     //distance check here - dont add to map if not within map raius
                                                     if let delta = self.mapView.userLocation.location?.distance(from: CLLocation(latitude: lat, longitude: long)){
                                                         if delta.magnitude <= UserSingleton.sharedUserInfo.mapRadius {
@@ -231,46 +248,40 @@ class mapVC: UIViewController, MKMapViewDelegate {
         if annotation is MKUserLocation {
             return nil
         }
+        let pinView2 = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        pinView2.image = UIImage(named: "playlistIcon")
         
-        let reuseId = "myAnnotation"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
-    
-        print(mapView.annotations.count)
         
-        if pinView == nil{
-            
-            pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView?.canShowCallout = true
-            pinView?.tintColor = UIColor.green
-            
-            //custom annotation picture
-            let lat = (pinView?.annotation?.coordinate.latitude)!
-            let long = (pinView?.annotation?.coordinate.longitude)!
-            var url = ""
-            firestoreDatabase.collection("userPlaylists").whereField("latitude", isEqualTo: lat).whereField("longitude", isEqualTo: long).getDocuments { (snapshot, error) in
-                if error != nil {
-                    self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error accessign DB.")
-                }else{
-                    if snapshot?.isEmpty == false && snapshot != nil {
-                        for doc in snapshot!.documents {
-                            if let email = doc.get("email") as? String {
-                                self.firestoreDatabase.collection("userInfo").whereField("email", isEqualTo: email).getDocuments { (snapshot, error) in
-                                    if error != nil {
-                                        self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error accessing DB")
-                                    }else{
-                                        if snapshot?.isEmpty == false && snapshot != nil {
-                                            for doc in snapshot!.documents {
-                                                if let profilePicURL = doc.get("profilePicURL") as? String {
-                                                    url = profilePicURL
-                                                    let newURL = URL(string: url)!
-                                                    let data = try? Data(contentsOf: newURL)
-
-                                                    if let imageData = data {
-                                                        let profilePic = UIImage(data: imageData)
-                                                        let scaledImage = profilePic!.scalePreservingAspectRatio(targetSize: CGSize(width: 35, height: 35))
+        pinView2.canShowCallout = true
+        pinView2.tintColor = UIColor.green
+        
+        //custom annotation picture
+        let lat = (pinView2.annotation?.coordinate.latitude)!
+        let long = (pinView2.annotation?.coordinate.longitude)!
+        var url = ""
+        firestoreDatabase.collection("userPlaylists").whereField("latitude", isEqualTo: lat).whereField("longitude", isEqualTo: long).getDocuments { (snapshot, error) in
+            if error != nil {
+                self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error accessign DB.")
+            }else{
+                if snapshot?.isEmpty == false && snapshot != nil {
+                    for doc in snapshot!.documents {
+                        if let email = doc.get("email") as? String {
+                            self.firestoreDatabase.collection("userInfo").whereField("email", isEqualTo: email).getDocuments { (snapshot, error) in
+                                if error != nil {
+                                    self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error accessing DB")
+                                }else{
+                                    if snapshot?.isEmpty == false && snapshot != nil {
+                                        for doc in snapshot!.documents {
+                                            if let profilePicURL = doc.get("profilePicURL") as? String {
+                                                url = profilePicURL
+                                                let newURL = URL(string: url)!
+                                                let data = try? Data(contentsOf: newURL)
+                                                
+                                                if let imageData = data {
+                                                    let profilePic = UIImage(data: imageData)
+                                                    let scaledImage = profilePic!.scalePreservingAspectRatio(targetSize: CGSize(width: 35, height: 35))
                                                         .sd_roundedCornerImage(withRadius: 25, corners: .allCorners, borderWidth: 2, borderColor: .green)
-                                                        pinView?.image = scaledImage
-                                                    }
+                                                    pinView2.image = scaledImage
                                                 }
                                             }
                                         }
@@ -281,20 +292,17 @@ class mapVC: UIViewController, MKMapViewDelegate {
                     }
                 }
             }
-            
-            if url == "" {
-                pinView?.image = UIImage(named: "playlistIcon")
-            }
-            
-            let button = UIButton(type: .detailDisclosure)
-            pinView?.rightCalloutAccessoryView = button
-            
-            
-        }else{
-            pinView?.annotation = annotation
         }
         
-        return pinView
+        if url == "" {
+            pinView2.image = UIImage(named: "playlistIcon")
+        }
+        
+        let button = UIButton(type: .detailDisclosure)
+        pinView2.rightCalloutAccessoryView = button
+        
+        
+        return pinView2
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {

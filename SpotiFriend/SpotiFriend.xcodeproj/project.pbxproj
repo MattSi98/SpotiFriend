@@ -42,7 +42,7 @@
 		C9ADA27124CE1BBD005850DE /* profileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileVC.swift; sourceTree = "<group>"; };
 		C9ADA27324CE1CE8005850DE /* logInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logInVC.swift; sourceTree = "<group>"; };
 		C9ADA27524CE22BD005850DE /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
-		C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Users/matt/Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C9ADA27724D0BFFB005850DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9ADA27924D1E2D7005850DE /* UserSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSingleton.swift; sourceTree = "<group>"; };
 		C9ADA27C24D33F60005850DE /* editAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editAccountVC.swift; sourceTree = "<group>"; };
 		ED56FF155CA8A113B3329E6B /* Pods-SpotiFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotiFriend.release.xcconfig"; path = "Target Support Files/Pods-SpotiFriend/Pods-SpotiFriend.release.xcconfig"; sourceTree = "<group>"; };

@@ -109,16 +109,21 @@ class profileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
                         if error == nil {
                             let imgURL = URL?.absoluteString
                                                         
-                            //delete old profile picture from storage
-                            let oldURL = UserSingleton.sharedUserInfo.profilePicURL
-                            let oldUUID = oldURL.components(separatedBy: "media%2F")[1].components(separatedBy: "?alt")[0]
-                            mediaFolder.child(oldUUID).delete { (error) in
-                                
-                                //TODO what do error handle here - potentially do nothing
-//                                if error != nil {
-//                                    self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Failed to delete data from storage")
-//                                }
+                            
+                            //if user has profile pic already - delete it from storage
+                            if UserSingleton.sharedUserInfo.profilePicURL != "" {
+                                //delete old profile picture from storage
+                                let oldURL = UserSingleton.sharedUserInfo.profilePicURL
+                                let oldUUID = oldURL.components(separatedBy: "media%2F")[1].components(separatedBy: "?alt")[0]
+                                mediaFolder.child(oldUUID).delete { (error) in
+                                    
+                                    //TODO what do error handle here - potentially do nothing
+                                    if error != nil {
+                                        self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Failed to delete data from storage")
+                                    }
+                                }
                             }
+                            
                             
                             //Firestore
                             //must store profile picture in firebase storage
